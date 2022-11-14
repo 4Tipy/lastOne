@@ -11,28 +11,27 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @Entity
 public class courseEntidad {
 	
-	
-	@OneToOne(mappedBy = "course")
 	@JsonIgnore
-	private courseMaterial courseMaterial;
+	@OneToOne
+	private courseEntidad courseEntidad;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-	
-	
 	private String curso;
-
-	public courseEntidad(courseMaterial courseMaterial, String curso) {
+	
+	public courseEntidad(courseEntidad courseEntidad, String curso) {
 		super();
+		this.courseEntidad = courseEntidad;
 		this.curso = curso;
-		this.courseMaterial = courseMaterial;
-	
-	} 
-	
+	}
 
-	public courseEntidad() {
-	
+	public courseEntidad getCourseEntidad() {
+		return courseEntidad;
+	}
+
+	public void setCourseEntidad(courseEntidad courseEntidad) {
+		this.courseEntidad = courseEntidad;
 	}
 
 	public long getId() {
@@ -50,27 +49,12 @@ public class courseEntidad {
 	public void setCurso(String curso) {
 		this.curso = curso;
 	}
-	
-
-	public courseMaterial getCourseMaterial() {
-		return courseMaterial;
-	}
-
-
-	public void setCourseMaterial(courseMaterial courseMaterial) {
-		this.courseMaterial = courseMaterial;
-	}
-
 
 	@Override
 	public String toString() {
-		return "courseEntidad [id=" + id + ", courseMaterial=" + courseMaterial + ", curso=" + curso + "]";
+		return "courseEntidad [courseEntidad=" + courseEntidad + ", id=" + id + ", curso=" + curso + "]";
 	}
 
-
 	
-	
-	
-
 
 }

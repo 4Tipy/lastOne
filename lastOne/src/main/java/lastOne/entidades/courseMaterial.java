@@ -12,46 +12,54 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 public class courseMaterial {
 	
 
-	@OneToOne
+	
 	@JsonIgnore
-	private courseEntidad course;
+	@OneToOne(mappedBy = "courseEntidad")
+	private courseMaterial courseMaterial;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	private String url;
 	
-	
-	public courseMaterial(courseEntidad course, String url) {
+	public courseMaterial(courseMaterial courseMaterial, String url) {
 		super();
-		this.course = course;
+		this.courseMaterial = courseMaterial;
 		this.url = url;
 	}
-	public courseEntidad getCourse() {
-		return course;
+
+	public courseMaterial getCourseMaterial() {
+		return courseMaterial;
 	}
-	public void setCourse(courseEntidad course) {
-		this.course = course;
+
+	public void setCourseMaterial(courseMaterial courseMaterial) {
+		this.courseMaterial = courseMaterial;
 	}
+
 	public long getId() {
 		return id;
 	}
+
 	public void setId(long id) {
 		this.id = id;
 	}
+
 	public String getUrl() {
 		return url;
 	}
+
 	public void setUrl(String url) {
 		this.url = url;
 	}
+
 	@Override
 	public String toString() {
-		return "courseMaterial [course=" + course + ", id=" + id + ", url=" + url + "]";
+		return "courseMaterial [courseMaterial=" + courseMaterial + ", id=" + id + ", url=" + url + "]";
 	}
 	
 	
 	
 	
+		
 
 }
