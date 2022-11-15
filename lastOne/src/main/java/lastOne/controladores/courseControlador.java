@@ -10,7 +10,6 @@ import lastOne.entidades.courseEntidad;
 import lastOne.repositorio.courseRepositorio;
 
 
-
 @RestController
 @RequestMapping("api")
 public class courseControlador {
